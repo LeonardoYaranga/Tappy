@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bu6g247xbjbdx"]
+
+[ext_resource type="Script" uid="uid://by67jsvcftjif" path="res://Scenes/Tappy/Tappy.gd" id="1_46n2r"]
+[ext_resource type="Texture2D" uid="uid://bk1weshdrxkh8" path="res://Assets/plane/planes_sheet.png" id="1_e2xxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46n2r"]
+atlas = ExtResource("1_e2xxp")
+region = Rect2(0, 0, 88, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i0lq"]
+atlas = ExtResource("1_e2xxp")
+region = Rect2(88, 0, 88, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssy2e"]
+atlas = ExtResource("1_e2xxp")
+region = Rect2(176, 0, 88, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vxlm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46n2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i0lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssy2e")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2xxp"]
+radius = 18.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=869735280]
+script = ExtResource("1_46n2r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953791740]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_5vxlm")
+animation = &"fly"
+frame_progress = 0.6634089
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=140236066]
+position = Vector2(9, 4)
+shape = SubResource("CircleShape2D_e2xxp")
