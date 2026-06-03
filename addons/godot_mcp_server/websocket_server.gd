@@ -247,7 +247,9 @@ func _update_panel(text: String) -> void:
 	if panel: panel.update_status(text)
 
 func _get_panel() -> Node:
-	return get_node_or_null("../../../../../MCP")
+	if _plugin and "status_panel" in _plugin:
+		return _plugin.status_panel
+	return null
 
 # DUPLICATE: Keep in sync with src/scripts/mcp_bridge.gd:_constant_time_compare
 # Cannot share because editor plugin and game autoload have separate script contexts.

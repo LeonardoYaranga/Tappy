@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bu6g247xbjbdx"]
 
-[ext_resource type="Script" uid="uid://by67jsvcftjif" path="res://Scenes/Tappy/Tappy.gd" id="1_46n2r"]
+[ext_resource type="Script" uid="uid://dj2iomtf03hn0" path="res://Scenes/Tappy/Tappy.gd" id="1_46n2r"]
 [ext_resource type="Texture2D" uid="uid://bk1weshdrxkh8" path="res://Assets/plane/planes_sheet.png" id="1_e2xxp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46n2r"]
@@ -35,14 +35,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2xxp"]
 radius = 18.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=869735280]
+[node name="Tappy" type="CharacterBody2D" unique_id=869735280]
+collision_layer = 2
 script = ExtResource("1_46n2r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953791740]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_5vxlm")
 animation = &"fly"
-frame_progress = 0.6634089
+frame_progress = 0.43962902
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=140236066]
 position = Vector2(9, 4)
