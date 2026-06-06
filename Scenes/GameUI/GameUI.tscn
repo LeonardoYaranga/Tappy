@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c0odnw8wfqrrr"]
+
+[ext_resource type="Script" uid="uid://cqfrydfhlrfl1" path="res://Scenes/GameUI/GameUi.gd" id="1_fr8lv"]
+[ext_resource type="LabelSettings" uid="uid://c10c71ko7fqr7" path="res://Resources/Label30.tres" id="1_mq6vr"]
+[ext_resource type="FontFile" uid="uid://cneedlbnotp5q" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_fr8lv"]
+[ext_resource type="LabelSettings" uid="uid://dc28dj57nou50" path="res://Resources/Label45.tres" id="3_yyhr2"]
+[ext_resource type="AudioStream" uid="uid://wjnyhwhbyrd" path="res://Assets/audio/game_over.wav" id="5_yyhr2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iq8cv"]
+font = ExtResource("2_fr8lv")
+font_size = 45
+font_color = Color(0.5728151, 0.10555106, 0.1506651, 1)
+outline_size = 10
+outline_color = Color(0.0008975964, 0.027931577, 0.117368035, 1)
+shadow_size = 4
+
+[node name="GameUI" type="Control" unique_id=776705075]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fr8lv")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1310411675]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer" unique_id=1623192699]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "000"
+label_settings = ExtResource("1_mq6vr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer" unique_id=148128992]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_iq8cv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressSpaceLabel" type="Label" parent="MarginContainer" unique_id=127870780]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space"
+label_settings = ExtResource("3_yyhr2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerToShowPressSpaceLabel" type="Timer" parent="." unique_id=801520962]
+wait_time = 2.0
+one_shot = true
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=302128838]
+stream = ExtResource("5_yyhr2")
+
+[connection signal="timeout" from="TimerToShowPressSpaceLabel" to="." method="_on_timer_to_show_press_space_label_timeout"]
