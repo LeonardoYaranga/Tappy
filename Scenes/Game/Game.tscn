@@ -3,15 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bu6g247xbjbdx" path="res://Scenes/Tappy/Tappy.tscn" id="1_rdw05"]
 [ext_resource type="Script" uid="uid://dbqwyiyqccuoc" path="res://Scenes/Game/Game.gd" id="1_xbxml"]
 [ext_resource type="PackedScene" uid="uid://bles33wu866yv" path="res://Scenes/Barrier/Barrier.tscn" id="2_gwu2e"]
-[ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://03srwbfxlqf" path="res://Scenes/ScrollingBg/ScrollingBg.tscn" id="2_y3kpf"]
 [ext_resource type="PackedScene" uid="uid://c0odnw8wfqrrr" path="res://Scenes/GameUI/GameUI.tscn" id="5_y3kpf"]
 
 [node name="Game" type="Node" unique_id=1207968281]
 script = ExtResource("1_xbxml")
 
-[node name="Rocks2" type="Sprite2D" parent="." unique_id=1132342723]
-position = Vector2(248, 268)
-texture = ExtResource("4_ln2h6")
+[node name="ScrollingBg" parent="." unique_id=2009118064 instance=ExtResource("2_y3kpf")]
+scale = Vector2(0.79, 0.79)
 
 [node name="CharacterBody2D" parent="." unique_id=869735280 instance=ExtResource("1_rdw05")]
 position = Vector2(84, 463)

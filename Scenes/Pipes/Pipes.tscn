@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://Scenes/Pipe/Pipe.tscn" id="1_nqmk8"]
 [ext_resource type="Script" uid="uid://c565ts6mlrpbr" path="res://Scenes/Pipes/Pipes.gd" id="1_u8oov"]
 [ext_resource type="PackedScene" uid="uid://gsjg6ojgmne2" path="res://Scenes/Laser/Laser.tscn" id="2_u8oov"]
+[ext_resource type="AudioStream" uid="uid://bp821cq4mc67q" path="res://Assets/audio/score.wav" id="4_omx2s"]
 
 [node name="Pipes" type="Node2D" unique_id=125133703]
 script = ExtResource("1_u8oov")
@@ -23,6 +24,9 @@ position = Vector2(110, 0)
 wait_time = 20.0
 one_shot = true
 autostart = true
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="." unique_id=1084940701]
+stream = ExtResource("4_omx2s")
 
 [connection signal="body_entered" from="Lower" to="." method="_on_pipe_body_entered"]
 [connection signal="body_entered" from="Upper" to="." method="_on_pipe_body_entered"]

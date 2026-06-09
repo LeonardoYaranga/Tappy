@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cb8aadeepf4c6"]
+
+[ext_resource type="Texture2D" uid="uid://bjibyqj06e775" path="res://Assets/background/sky.png" id="1_pxm2y"]
+[ext_resource type="Script" uid="uid://34cijjgagidp" path="res://Scenes/Changes/SimpleChange.gd" id="1_sesw5"]
+[ext_resource type="FontFile" uid="uid://cneedlbnotp5q" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_pxm2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sesw5"]
+font = ExtResource("2_pxm2y")
+font_size = 36
+font_color = Color(0.9256112, 0.04768002, 0.25242576, 1)
+outline_size = 10
+outline_color = Color(0.6179061, 0.19204405, 0.936522, 1)
+
+[node name="SimpleChange" type="Control" unique_id=835263383]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sesw5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1633451250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pxm2y")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=2032734349]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+label_settings = SubResource("LabelSettings_sesw5")
+horizontal_alignment = 1
+vertical_alignment = 1

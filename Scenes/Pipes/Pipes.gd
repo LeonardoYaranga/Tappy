@@ -2,6 +2,7 @@ extends Node2D
 class_name Pipes
 
 @onready var laser: Area2D = $Laser
+@onready var score_sound: AudioStreamPlayer = $ScoreSound
 
 var SPEED: float = 120.0
 
@@ -33,3 +34,4 @@ func _on_pipe_body_entered(body: Node2D) -> void:
 func _on_laser_body_exited(body: Node2D) -> void:
 	if body is Tappy:
 		SignalHub.emit_on_point_scored()
+		score_sound.play()

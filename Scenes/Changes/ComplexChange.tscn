@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://d2dhlmsgmcjoj"]
+
+[ext_resource type="Script" uid="uid://ct2i7y471xs7l" path="res://Scenes/Changes/ComplexChange.gd" id="1_fqsg8"]
+
+[sub_resource type="Animation" id="Animation_0gbnc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.09019608, 0.09019608, 0.09019608, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fqsg8"]
+resource_name = "fade"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.09019608, 0.09019608, 0.09019608, 0), Color(0.080783345, 0.080783345, 0.080783345, 1), Color(0.080783345, 0.080783345, 0.080783345, 1), Color(0.09019608, 0.09019608, 0.09019608, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ltbym"]
+_data = {
+&"RESET": SubResource("Animation_0gbnc"),
+&"fade": SubResource("Animation_fqsg8")
+}
+
+[node name="ComplexChange" type="CanvasLayer" unique_id=461488688]
+process_mode = 3
+layer = 2
+script = ExtResource("1_fqsg8")
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=1035624663]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.09019608, 0.09019608, 0.09019608, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=136521938]
+libraries/ = SubResource("AnimationLibrary_ltbym")

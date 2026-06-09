@@ -22,12 +22,12 @@ func update_score_label() -> void:
 func on_point_scored() -> void:
 	_score += 1
 	update_score_label()
-	print("Score:", _score)
 
 func on_game_over() -> void:
 	game_over_label.show()
 	game_over_sound.play()
 	timer_to_show_press_space_label.start()
+	ScoreManager.high_score = _score
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Menu"):
